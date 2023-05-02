@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "users#index"
 
-  resources :users
+  resources :users do
+    get :show_mailer_template, on: :member
+  end
 
 end

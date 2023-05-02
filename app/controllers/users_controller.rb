@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:edit, :update, :show, :show_mailer_template]
 
   def index
     @users = User.all
@@ -19,6 +19,10 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+
+  def show_mailer_template
+    render template: 'user_mailer/send_welcome_email', layout: 'mailer'
   end
 
   def edit
